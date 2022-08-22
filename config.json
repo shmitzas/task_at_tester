@@ -3,6 +3,10 @@
         "auth": "serial",
         "commands": [
             {
+                "command": "ATE1",
+                "expects": "OK"
+            },
+            {
                 "command": "AT+CMGF",
                 "args": [
                     1
@@ -39,10 +43,6 @@
             },
             {
                 "command": "AT&V",
-                "expects": "OK"
-            },
-            {
-                "command": "ATE1",
                 "expects": "OK"
             },
             {

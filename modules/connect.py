@@ -19,7 +19,8 @@ class ConnectionHandler:
                     rtscts=False,
                     parity=serial.PARITY_NONE,
                     stopbits=serial.STOPBITS_ONE,
-                    timeout=0.5
+                    timeout=1,
+                    write_timeout=5
                 )
            
     

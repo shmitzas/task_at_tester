@@ -16,15 +16,21 @@ results = None
 config_filename = 'config.json'
 
 def init_modules():
-    global cfg, conn, tests, results
-    cfg = ConfigHandler(config_filename)
-    conn = ConnectionHandler(cfg.get_param(sys.argv[1].upper()))
-    tests = TestHandler(conn)
+    global cfg, conn, tests, csv_saver, router
+    try:
+        router = sys.argv[1].upper()
+        cfg = ConfigHandler(config_filename)
+        conn = ConnectionHandler(cfg.get_param(router))
+        tests = TestHandler(conn)
+        csv_saver = CSVHandler()
+    except Exception as error:
+        raise Exception(error)
     
 def main():
     init_modules()
-    tests.run_tests()
-
+    results = tests.run_tests(cfg.get_param(router))
+    results.append(router)
+    csv_saver.save(results)
 
 if __name__ == '__main__':
     main()

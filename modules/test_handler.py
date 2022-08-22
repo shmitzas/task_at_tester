@@ -1,5 +1,5 @@
 import re
-
+import time
 
 class TestHandler:
     __conn = None
@@ -27,22 +27,21 @@ class TestHandler:
                         pass
                 else:
                     self.__conn.exec((str(cmd['command']) + '\r'))
-
                 res = self.__conn.res()
-                msg = res[-2]
+                msg = res[-1]
 
-                data['Command'] = cmd['command']
-                data['Expected'] = cmd['expects']
-                data['Returned'] = msg
+                data['command'] = cmd['command']
+                data['expected'] = cmd['expects']
+                data['returned'] = msg
 
                 if msg == cmd['expects']:
-                    data['Result'] = 'Passed'
+                    data['result'] = 'Passed'
                 else:
-                    data['Result'] = 'Failed'
+                    data['result'] = 'Failed'
 
             except Exception as e:
-                print('saaaaaaaa')
                 print(e)
 
             processed_data.append(data)
+        
         return processed_data
