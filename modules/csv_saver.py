@@ -10,7 +10,7 @@ class CSVHandler:
         pass
 
     def save(self, data):
-        header = 'Command; Expected; Returned; Result'
+        header = 'Command, Expected, Returned, Result'
         filename = './results/' + str(data[-1]) + '_' + str(self.__date.year) + '-' + str(self.__date.month) + '-' + str(
             self.__date.day) + '-' + str(self.__date.hour) + '-' + str(self.__date.minute) + '_test.csv'
 
@@ -25,4 +25,4 @@ class CSVHandler:
             print(e)
             
     def formatter(self, test):
-        return str(test['command']) + ';' + str(test['expected']) + ';' + str(test['returned']) + ';' + str(test['result'])
+        return str(test['command']) + ',' + str(test['expected']) + ',' + str(test['returned']) + ',' + str(test['result'])
