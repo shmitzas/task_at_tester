@@ -5,15 +5,15 @@ class ConnectionHandler:
     def __init__(self, cfg):
         match cfg['auth']:
             case 'serial':
-                self.__connect_serial()
+                self.__conn = self.__connect_serial(cfg['auth_params']['port'], cfg['auth_params']['baudrate'])
             case 'ssh':
-                self.__connect_ssh(cfg)
+                self.__conn = self.__connect_ssh(cfg['auth_params'])
                 
                 
-    def __connect_serial(self):
-        self.__conn = serial.Serial(
-                    port='/dev/ttyUSB2',
-                    baudrate=115200,
+    def __connect_serial(self, port='ttyUSB2', baudrate=115200):
+        __conn = serial.Serial(
+                    port='/dev/' + port,
+                    baudrate=baudrate,
                     bytesize=serial.EIGHTBITS,
                     xonxoff=False,
                     rtscts=False,
@@ -22,6 +22,7 @@ class ConnectionHandler:
                     timeout=1,
                     write_timeout=5
                 )
+        return __conn
            
     
     def exec(self, cmd):

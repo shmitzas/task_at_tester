@@ -1,6 +1,11 @@
 {
     "TRM250": {
         "auth": "serial",
+        "auth_params":
+        {
+            "port": "ttyUSB2",
+            "baudrate": 115200
+        },
         "commands": [
             {
                 "command": "ATE1",

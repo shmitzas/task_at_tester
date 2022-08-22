@@ -8,10 +8,12 @@ class TestHandler:
         self.__conn = connection
 
     def run_tests(self, cfg):  
+        passed_cmd = 0
+        failed_cmd = 0
         processed_data = []
         num_r = re.compile(r'(?:\+\d{11})')
         for cmd in cfg['commands']:
-            print(cmd['command'])
+            # print(cmd['command'])
             data = {}
             try:
                 if 'args' in cmd.keys():
@@ -29,19 +31,26 @@ class TestHandler:
                     self.__conn.exec((str(cmd['command']) + '\r'))
                 res = self.__conn.res()
                 msg = res[-1]
+                print(res[0])
 
-                data['command'] = cmd['command']
+                data['command'] = res[0]
                 data['expected'] = cmd['expects']
                 data['returned'] = msg
 
                 if msg == cmd['expects']:
                     data['result'] = 'Passed'
+                    passed_cmd+=1
                 else:
                     data['result'] = 'Failed'
+                    failed_cmd+=1
 
             except Exception as e:
                 print(e)
 
             processed_data.append(data)
+            
+        print('\n' + 'Commands to test: ' + str(len(cfg['commands'])))
+        print('\033[92m' + 'Passed: ' + str(passed_cmd) + '\033[0m')
+        print('\033[91m' + 'Failed: ' + str(failed_cmd) + '\033[0m')
         
         return processed_data

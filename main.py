@@ -6,7 +6,7 @@ import os
 import sys
 
 # Disable modem manager
-os.system('sudo systemctl stop ModemManager.service')
+os.system('systemctl stop ModemManager.service')
 
 cfg = None
 conn = None
@@ -28,6 +28,7 @@ def init_modules():
     
 def main():
     init_modules()
+    print('Running tests for:', router, '\n')
     results = tests.run_tests(cfg.get_param(router))
     results.append(router)
     csv_saver.save(results)
