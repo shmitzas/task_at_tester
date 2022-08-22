@@ -25,4 +25,4 @@ class CSVHandler:
             print(e)
             
     def formatter(self, test):
-        return str(test['command']) + ',' + str(test['expected']) + ',' + str(test['returned']) + ',' + str(test['result'])
+        return str(test['command']).replace('"','') + ',' + str(test['expected']) + ',' + str(test['returned']) + ',' + str(test['result'])

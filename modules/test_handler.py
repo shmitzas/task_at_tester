@@ -13,7 +13,6 @@ class TestHandler:
         processed_data = []
         num_r = re.compile(r'(?:\+\d{11})')
         for cmd in cfg['commands']:
-            # print(cmd['command'])
             data = {}
             try:
                 if 'args' in cmd.keys():
