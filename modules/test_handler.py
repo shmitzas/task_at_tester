@@ -19,7 +19,7 @@ class TestHandler:
                 if 'args' in cmd.keys():
                     if re.search(num_r, str(cmd['args'])) != None:
                         self.__conn.exec(
-                            str(cmd['command']) + '="' + str(cmd['args'][0]))
+                            str(cmd['command']) + '="' + str(cmd['args'][0]+'"'))
                     else:
                         self.__conn.exec(
                             str(cmd['command']) + '=' + str(cmd['args'][0]))

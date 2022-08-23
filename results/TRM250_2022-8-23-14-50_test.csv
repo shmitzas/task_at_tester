@@ -1,16 +1,16 @@
 Command, Expected, Returned, Result
 ATE1,OK,OK,Passed
 AT+CMGF,OK,OK,Passed
-AT+CMGS,OK,ERROR,Failed
+AT+CMGS,OK,OK,Passed
 AT+CGMM,OK,OK,Passed
 AT+CGMR,OK,OK,Passed
 AT+CGSN,OK,OK,Passed
 ATI,OK,OK,Passed
 AT+GMI,OK,OK,Passed
 AT&V,OK,OK,Passed
-AT+QCCID,OK,+CME ERROR: SIM failure,Failed
-AT+COPN,OK,ERROR,Failed
-AT+CSDH,OK,ERROR,Failed
-AT+CNUM,OK,ERROR,Failed
-AT+CMGR,OK,ERROR,Failed
-AT+CGPADDR,OK,ERROR,Failed
+AT+QCCID,OK,OK,Passed
+AT+COPN,OK,OK,Passed
+AT+CSDH,OK,OK,Passed
+AT+CNUM,OK,OK,Passed
+AT+CMGR,OK,OK,Passed
+AT+CGPADDR,OK,OK,Passed
