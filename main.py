@@ -15,6 +15,7 @@ results = None
 
 config_filename = 'config.json'
 
+
 def init_modules():
     global cfg, conn, tests, csv_saver, router
     try:
@@ -25,13 +26,15 @@ def init_modules():
         csv_saver = CSVHandler()
     except Exception as error:
         raise Exception(error)
-    
+
+
 def main():
     init_modules()
     print('Running tests for:', router, '\n')
     results = tests.run_tests(cfg.get_param(router))
     results.append(router)
     csv_saver.save(results)
+
 
 if __name__ == '__main__':
     main()

@@ -1,7 +1,7 @@
 Command, Expected, Returned, Result
 ATE1,OK,OK,Passed
-AT+CMGF=1,OK,OK,Passed
-AT+CMGS=+37069962088,OK,OK,Passed
+AT+CMGF,OK,OK,Passed
+AT+CMGS,OK,ERROR,Failed
 AT+CGMM,OK,OK,Passed
 AT+CGMR,OK,OK,Passed
 AT+CGSN,OK,OK,Passed
@@ -10,7 +10,7 @@ AT+GMI,OK,OK,Passed
 AT&V,OK,OK,Passed
 AT+QCCID,OK,OK,Passed
 AT+COPN,OK,OK,Passed
-AT+CSDH=1,OK,OK,Passed
+AT+CSDH,OK,OK,Passed
 AT+CNUM,OK,OK,Passed
-AT+CMGR=1,OK,OK,Passed
+AT+CMGR,OK,OK,Passed
 AT+CGPADDR,OK,OK,Passed
