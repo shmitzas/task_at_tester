@@ -1,4 +1,3 @@
-from cgitb import reset
 import time
 import paramiko
 
@@ -93,6 +92,41 @@ class Connection:
             return True
         else:
             return False
+        
+    def get_router_data(self):
+        data = {}
+        self.__ssh_client.close()
+        time.sleep(1)
+        client = paramiko.SSHClient()
+        client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
+        try:
+            client.connect(self.__addr, self.__port,
+                           self.__username, self.__password, timeout=10)
+            self.__ssh_client = client
+            
+            stdin, stdout, stderr = self.__ssh_client.exec_command('gsmctl -w -m -y')
+            res = (stdout.readlines())
+            
+            data['manufacturer'] = res[1].replace('\r\n', '')
+            data['board'] = res[3].replace('\r\n', '')
+            data['revision'] = res[5].replace('\r\n', '')
+            
+            stdin, stdout, stderr = self.__ssh_client.exec_command('ubus call mnfinfo get_value \'{\"key\": \"name\"}\'')
+            res = str(stdout.readlines()[1]).split(':')
+            
+            data['model'] = res[1][1:8]
+            
+            self.__ssh_client.close()
+            time.sleep(1)
+            if not self.__open_connection():
+                print('Unable to connect to SSH server')
+                exit()
+            
+            return data
+            
+        except Exception as error:
+            print(error)
+            exit()
 
     def __del__(self):
         self.close_connection()

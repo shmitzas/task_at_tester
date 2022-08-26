@@ -12,6 +12,7 @@ class TestHandler:
         passed_cmd = 0
         failed_cmd = 0
         processed_data = []
+        processed_data.append(self.__conn.get_router_data())
         for cmd in cfg['commands']:
             data, result = self.test_command(cmd)
             processed_data.append(data)

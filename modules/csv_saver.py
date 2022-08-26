@@ -11,6 +11,7 @@ class CSVHandler:
 
     def save(self, data):
         header = 'Command, Expected, Returned, Result'
+        router_data = data[0]
         try:
             router_name = str(data[-1])
             dir_name = './results/'
@@ -23,8 +24,9 @@ class CSVHandler:
                 self.__date.day) + '-' + str(self.__date.hour) + '-' + str(self.__date.minute) + '_test.csv'
 
             with open(filename, 'w') as f:
+                f.write(self.router_formatter(router_data))
                 f.write(header+'\n')
-                for item in data[:-1]:
+                for item in data[1:-1]:
                     f.write(self.formatter(item)+'\n')
             f.close()
         except Exception as e:
@@ -35,3 +37,6 @@ class CSVHandler:
     def formatter(self, test):
         # print('CSV saver komanda:\n', test)
         return str(test['command']).replace('"', '') + ',' + str(test['expected']) + ',' + str(test['returned']) + ',' + str(test['result'])
+    
+    def router_formatter(self, test):
+        return 'Model: ' + str(test['model']).replace('"', '') + ',Manufacturer: ' + str(test['manufacturer']) + ',Board: ' + str(test['board']) + ',Revision: ' + str(test['revision']+'\n')
