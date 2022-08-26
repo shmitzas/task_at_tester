@@ -1,3 +1,6 @@
+Model: RUTX11,,,
+Manfucturer: quectel,,,
+
 Command, Expected, Returned, Result
 ATE1,OK,OK,Passed
 AT+CMGF=1,OK,OK,Passed
@@ -15,6 +18,3 @@ AT+CSDH=1,OK,OK,Passed
 AT+CNUM,OK,OK,Passed
 AT+CMGR=1,OK,OK,Passed
 AT+CGPADDR,OK,OK,Passed
-
-Model: RUTX11,,,
-Manfucturer: quectel,,,
