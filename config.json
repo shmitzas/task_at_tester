@@ -6,21 +6,18 @@
             "baudrate": 115200
         },
         "commands": [
+            
             {
                 "command": "ATE1",
                 "expects": "OK"
             },
             {
-                "command": "AT+CMGF",
-                "args": [
-                    1
-                ],
+                "command": "AT+CMGF=1",
                 "expects": "OK"
             },
             {
-                "command": "AT+CMGS",
+                "command": "AT+CMGS=\"+37060000000\"",
                 "args": [
-                    "+37069962088",
                     "test text"
                 ],
                 "expects": "OK"
@@ -58,10 +55,7 @@
                 "expects": "OK"
             },
             {
-                "command": "AT+CSDH",
-                "args": [
-                    1
-                ],
+                "command": "AT+CSDH=1",
                 "expects": "OK"
             },
             {
@@ -69,10 +63,84 @@
                 "expects": "OK"
             },
             {
-                "command": "AT+CMGR",
+                "command": "AT+CMGR=1",
+                "expects": "OK"
+            },
+            {
+                "command": "AT+CGPADDR",
+                "expects": "OK"
+            }
+        ]
+    },
+    "TRM240": {
+        "auth": "serial",
+        "auth_params": {
+            "port": "ttyUSB2",
+            "baudrate": 115200
+        },
+        "commands": [
+            
+            {
+                "command": "ATE1",
+                "expects": "OK"
+            },
+            {
+                "command": "AT+CMGF=1",
+                "expects": "OK"
+            },
+            {
+                "command": "AT+COPS=?",
+                "expects": "OK"
+            },
+            {
+                "command": "AT+CMGS=\"+37060000000\"",
                 "args": [
-                    1
+                    "test text"
                 ],
+                "expects": "OK"
+            },
+            {
+                "command": "AT+CGMM",
+                "expects": "OK"
+            },
+            {
+                "command": "AT+CGMR",
+                "expects": "OK"
+            },
+            {
+                "command": "AT+CGSN",
+                "expects": "OK"
+            },
+            {
+                "command": "ATI",
+                "expects": "OK"
+            },
+            {
+                "command": "AT+GMI",
+                "expects": "OK"
+            },
+            {
+                "command": "AT&V",
+                "expects": "OK"
+            },
+            {
+                "command": "AT+QCCID",
+                "expects": "OK"
+            },
+            {
+                "command": "AT+COPN",
+                "expects": "OK"
+            },
+            {
+                "command": "AT+CSDH=1",
+                "expects": "OK"
+            },
+            {
+                "command": "AT+CNUM",
+                "expects": "OK"
+            },
+            {
+                "command": "AT+CMGR=1",
                 "expects": "OK"
             },
             {
@@ -86,7 +154,8 @@
         "auth_params": {
             "username": "root",
             "password": "Admin123",
-            "address": "192.168.1.1"
+            "address": "192.168.1.1",
+            "port": 22
         },
         "commands": [
             {
@@ -94,16 +163,16 @@
                 "expects": "OK"
             },
             {
-                "command": "AT+CMGF",
-                "args": [
-                    1
-                ],
+                "command": "AT+CMGF=1",
                 "expects": "OK"
             },
             {
-                "command": "AT+CMGS",
+                "command": "AT+COPS=?",
+                "expects": "OK"
+            },
+            {
+                "command": "AT+CMGS=\"+37060000000\"",
                 "args": [
-                    "+37061234567",
                     "test text"
                 ],
                 "expects": "OK"
@@ -141,10 +210,7 @@
                 "expects": "OK"
             },
             {
-                "command": "AT+CSDH",
-                "args": [
-                    1
-                ],
+                "command": "AT+CSDH=1",
                 "expects": "OK"
             },
             {
@@ -152,10 +218,7 @@
                 "expects": "OK"
             },
             {
-                "command": "AT+CMGR",
-                "args": [
-                    1
-                ],
+                "command": "AT+CMGR=1",
                 "expects": "OK"
             },
             {

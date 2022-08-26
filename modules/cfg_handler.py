@@ -5,18 +5,19 @@ class ConfigHandler:
     __config = None
     __error = None
 
-    def __init__(self, configPath="config.json"):
+    def __init__(self, configPath='config.json'):
         if not self.__load_config(configPath):
-            raise Exception(self.__error)
+            print(self.__error)
+            exit()
 
     def __load_config(self, configPath):
         if not os.path.exists(configPath):
-            self.__error = "Config file does not exists"
+            self.__error = 'Config file "{}" does not exist'.format(configPath)
             return None
-        config = open(configPath, "r")
+        config = open(configPath, 'r')
         content = config.read()
         if not self.__is_json(content):
-            self.__error = "Config file content is not JSON"
+            self.__error = 'Config file content is not JSON'
             return None
         self.__config = json.loads(content)
         config.close()
