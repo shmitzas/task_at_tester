@@ -16,5 +16,5 @@ AT+CNUM,OK,OK,Passed
 AT+CMGR=1,OK,OK,Passed
 AT+CGPADDR,OK,OK,Passed
 
-Manfucatrurer: quectel,
-Model: RUTX11
+Model: RUTX11,,,
+Manfucturer: quectel,,,
