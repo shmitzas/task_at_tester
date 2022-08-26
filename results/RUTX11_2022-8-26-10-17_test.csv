@@ -1,5 +1,3 @@
-Modem: RUTX11,
-Manufacturer: Quectel,
 Command, Expected, Returned, Result
 ATE1,OK,OK,Passed
 AT+CMGF=1,OK,OK,Passed
