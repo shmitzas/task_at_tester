@@ -6,7 +6,6 @@
             "baudrate": 115200
         },
         "commands": [
-            
             {
                 "command": "ATE1",
                 "expects": "OK"
