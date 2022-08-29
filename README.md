@@ -1,8 +1,5 @@
-# AT Command automated tests
-
 # Table of Contents
 
-- [AT Command automated tests](#at-command-automated-tests)
 - [Table of Contents](#table-of-contents)
 - [Introduction](#introduction)
   - [Purpose of this Document](#purpose-of-this-document)
