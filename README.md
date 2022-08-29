@@ -77,7 +77,7 @@ The purpose of this program is to automate testing of AT commands for any device
 #### Configuration file example
 
 - A configuration file is formatted as json file
-- Configuration file must be named ==config.json==
+- Configuration file must be named **config.json**
 - For every device, there are a few things that **must** be defined in order for automated tests to work
   1. Device name
   2. Connection type
