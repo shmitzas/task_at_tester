@@ -55,9 +55,9 @@ The purpose of this program is to automate testing of AT commands for any device
 - Handles order in which modules are executed
 
 - Module execution order:
-  1. All modules are initialized
-  2. Tests all commands from configuration file that are assigned to device that was specified at launch
-  3. Passes test results to `csv_saver`
+  - All modules are initialized
+  - Tests all commands from configuration file that are assigned to device that was specified at launch
+  - Passes test results to `csv_saver`
 
 - Modules used:
   - test_handler
@@ -79,23 +79,23 @@ The purpose of this program is to automate testing of AT commands for any device
 - A configuration file is formatted as json file
 - Configuration file must be named **config.json**
 - For every device, there are a few things that **must** be defined in order for automated tests to work
-  1. Device name
-  2. Connection type
-     1. serial
-     2. ssh
-  3. Authentication parameters
-     1. For *serial* connection:
-        1. Port
-        2. Baudrate
-     2. For *ssh* connection:
-        1. IP address
-        2. Port
-        3. Username
-        4. Password
-  4. List of commands
-     1. Command
-     2. Expected returned value
-     3. Extra arguments (optional)
+  - Device name
+  - Connection type
+     - serial
+     - ssh
+  - Authentication parameters
+     - For *serial* connection:
+        - Port
+        - Baudrate
+     - For *ssh* connection:
+        - IP address
+        - Port
+        - Username
+        - Password
+  - List of commands
+     - Command
+     - Expected returned value
+     - Extra arguments (optional)
 
 - Here is an example of a device configuration which uses SSH connection type:
 
@@ -270,12 +270,12 @@ The purpose of this program is to automate testing of AT commands for any device
 - Writes device information and tests results to a `.csv` file
 - Example of how tests results are named:
   `RUTX11_2022-8-29-9-52_test.csv`
-  1. Device name
-  2. Year
-  3. Month
-  4. Day
-  5. Hour 
-  6. Minute
+  - Device name
+  - Year
+  - Month
+  - Day
+  - Hour 
+  - Minute
 
   **NOTE: Date is depends on time and date of result saving runtime**
 
