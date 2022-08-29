@@ -1,4 +1,0 @@
-Model: RUTX11,Manufacturer: Quectel,Board: EG06,Revision: EG06ELAR04A04M4G
-Command, Expected, Returned, Result
-ATE1,OK,OK,Passed
-AT+CMGF=1,OK,OK,Passed

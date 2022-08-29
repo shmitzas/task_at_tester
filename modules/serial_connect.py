@@ -48,6 +48,7 @@ class Connection:
         ]
         try:
             self.__conn.write((str(cmd) + '\r').encode())
+            time.sleep(1)
             if result:
                 time_limit = time.time()+180
                 while time.time() < time_limit:
@@ -77,6 +78,23 @@ class Connection:
             return True
         else:
             return False
+
+    def get_router_data(self):
+        data = {}
+        try:
+            self.__conn.write('ATI\r'.encode())
+            time.sleep(1)
+            res = self.__conn.readall().decode('utf-8').split()
+            data['manufacturer'] = res[1]
+            data['board'] = res[2]
+            data['revision'] = res[4]
+            data['model'] = False
+            return data
+            
+
+        except:
+            print('Could not get data about the router')
+            exit()
 
     def close_connection(self):
         if self.__conn:

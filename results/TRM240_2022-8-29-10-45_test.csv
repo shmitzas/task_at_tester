@@ -1,6 +1,4 @@
-Model: RUTX11,,,
-Manfucturer: quectel,,,
-
+Manufacturer: Quectel,Board: EC21,Revision: EC21ECGAR06A04M1G
 Command, Expected, Returned, Result
 ATE1,OK,OK,Passed
 AT+CMGF=1,OK,OK,Passed

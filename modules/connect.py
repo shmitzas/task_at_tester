@@ -7,7 +7,7 @@ class ConnectionHandler:
 
     def exec(self, cmd, result=False):
         return self.__conn.exec(cmd, result)
-    
+
     def get_router_data(self):
         return self.__conn.get_router_data()
 

@@ -29,14 +29,15 @@ class CSVHandler:
                 for item in data[1:-1]:
                     f.write(self.formatter(item)+'\n')
             f.close()
-        except Exception as e:
-            raise (e)
+        except:
             print('Could not save results to a file')
             exit()
 
     def formatter(self, test):
-        # print('CSV saver komanda:\n', test)
         return str(test['command']).replace('"', '') + ',' + str(test['expected']) + ',' + str(test['returned']) + ',' + str(test['result'])
-    
+
     def router_formatter(self, test):
-        return 'Model: ' + str(test['model']).replace('"', '') + ',Manufacturer: ' + str(test['manufacturer']) + ',Board: ' + str(test['board']) + ',Revision: ' + str(test['revision']+'\n')
+        if test['model']:
+            return 'Model: ' + str(test['model']).replace('"', '') + ',Manufacturer: ' + str(test['manufacturer']) + ',Board: ' + str(test['board']) + ',Revision: ' + str(test['revision']+'\n')
+        else:
+            return 'Manufacturer: ' + str(test['manufacturer']) + ',Board: ' + str(test['board']) + ',Revision: ' + str(test['revision']+'\n')
