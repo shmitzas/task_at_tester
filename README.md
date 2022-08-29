@@ -99,7 +99,7 @@ The purpose of this program is to automate testing of AT commands for any device
 
 - Here is an example of a device configuration which uses SSH connection type:
 
-```
+```json
 {
 "RUTX11": {
         "auth": "ssh",
@@ -136,7 +136,7 @@ The purpose of this program is to automate testing of AT commands for any device
 
 - Here is an example of a device configuration which uses Serial connection type:
 
-```
+```json
 {
 "TRM250": {
         "auth": "serial",
@@ -167,7 +167,7 @@ The purpose of this program is to automate testing of AT commands for any device
 
 - Here is an example of having multiple devices in one configuration file:
 
-```
+```json
 {
     "RUTX11": {
         "auth": "ssh",
